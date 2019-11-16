@@ -9,10 +9,14 @@ function convert (content) {
 }
 
 function cb (data) {
-  var result = new Buffer(convert(data[0].articleContent)).toString('base64')
+  var result = Buffer.from(convert(data[0].articleContent)).toString('base64')
   var filePath = path.resolve(__dirname, OUTPUT_DIR, 'onessr-sub.txt')
   fs.writeFile(filePath, result, function (e) {
-    if (e) throw new Error(e);
+    if (e) {
+      throw new Error(e)
+    } else {
+      console.log('Saved to public/onessr-sub.txt.')
+    }
   })
 }
 
