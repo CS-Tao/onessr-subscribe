@@ -12,11 +12,11 @@ jobs:
     - uses: actions/checkout@master
     - name: Install
       run: npm i
-    - name: Build
-      run: npm run build
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v2.5.0
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v2
       env:
-        ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./public
+        ACCESS_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        BASE_BRANCH: master
+        BRANCH: gh-pages
+        FOLDER: public
+        BUILD_SCRIPT: npm run build
