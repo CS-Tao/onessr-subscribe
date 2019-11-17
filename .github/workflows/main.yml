@@ -16,7 +16,7 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v2
       env:
         TZ: Asia/Shanghai
-        LANG: UTF-8
+        LANG: zh_CN.UTF-8
         ACCESS_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         BASE_BRANCH: master
         BRANCH: gh-pages
