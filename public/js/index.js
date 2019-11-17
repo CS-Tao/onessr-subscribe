@@ -22,5 +22,17 @@ function getLastUpdateTime (url, elementId) {
 }
 
 window.onload = function () {
-  getLastUpdateTime(`/onessr-subscribe/last-update.txt?time=${this.Date.now()}`, 'last-update')
+  getLastUpdateTime(`/onessr-subscribe/last-update.txt?time=${this.Date.now()}`, 'last-update');
+}
+
+var ipt = document.getElementById('input');
+var title = document.getElementById('title');
+
+ipt.onfocus = function () {
+  this.select()
+  title.classList.add('title-focus')
+}
+
+ipt.onblur = function () {
+  title.classList.remove('title-focus')
 }
