@@ -20,5 +20,5 @@ function getLastUpdateTime (url, elementId) {
 }
 
 window.onload = function () {
-  getLastUpdateTime('https://home.cs-tao.cc/onessr-subscribe/last-update.txt', 'last-update')
+  getLastUpdateTime(`https://home.cs-tao.cc/onessr-subscribe/last-update.txt?time=${this.Date.now()}`, 'last-update')
 }
