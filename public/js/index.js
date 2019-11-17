@@ -20,5 +20,5 @@ function getLastUpdateTime (url, elementId) {
 }
 
 window.onload = function () {
-  getLastUpdateTime(`/last-update.txt?time=${this.Date.now()}`, 'last-update')
+  getLastUpdateTime(`/onessr-subscribe/last-update.txt?time=${this.Date.now()}`, 'last-update')
 }
