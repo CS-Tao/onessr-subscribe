@@ -6,7 +6,9 @@ function getLastUpdateTime (url, elementId) {
 
   xhr.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
-      document.getElementById(elementId).innerText = 'Last check: ' + (this.responseText ? this.responseText.replace('\n', '') : 'Error to fetch data');
+      if (this.status === 200) {
+        document.getElementById(elementId).innerText = 'Last check: ' + (this.responseText ? this.responseText.replace('\n', '') : 'Error to fetch data');
+      }
     }
   });
 
