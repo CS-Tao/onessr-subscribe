@@ -10,7 +10,7 @@
  * @return {boolean} 是否希望你使用
 */
 function statement (you) {
-  if (!you.knownHowToUse) {
+  if (you.knownHowToUse) {
     if (you.isLoveChina) {
       switch (you.getPurpose()) {
         case '使用墙外社交软件':
