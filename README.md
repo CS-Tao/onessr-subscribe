@@ -1,7 +1,7 @@
 [![Build status](https://github.com/CS-Tao/onessr-subscribe/workflows/schedule/badge.svg)](https://github.com/CS-Tao/onessr-subscribe/actions?query=workflow%3Aschedule)
 # onessr-subscribe
 
-> I love China
+> 曲线爱国第一步
 
 ```javascript
 /** 网站声明
@@ -10,8 +10,8 @@
  * @return {boolean} 是否希望你使用
 */
 function statement (you) {
-  if (you.knownHowToUse) {
-    if (you.isLoveChina) {
+  if (you.isLoveChina) {
+    if (you.knownHowToUse) {
       switch (you.getPurpose()) {
         case '使用墙外社交软件':
         case '抵制墙外瞎报道的媒体':
@@ -21,10 +21,10 @@ function statement (you) {
           throw Error('请勿使用')
       }
     } else {
-      throw Error('戈乌嗯')
+      return false
     }
   } else {
-    return false
+    throw Error('戈乌嗯')
   }
 }
 
