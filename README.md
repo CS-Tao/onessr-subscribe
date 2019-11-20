@@ -7,7 +7,7 @@
 /** 网站声明
  * @method statement
  * @param {Person} you 你
- * @return {boolean} 是否欢迎你
+ * @return {boolean} 是否希望你使用
 */
 function statement (you) {
   if (!you.knownHowToUse) {
