@@ -1,0 +1,15 @@
+
+language: node_js
+node_js: 8
+
+install:
+  - npm i
+
+script:
+  - npm run build
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local-dir: public
+  github-token: $GITHUB_TOKEN
