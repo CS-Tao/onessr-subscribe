@@ -1,0 +1,24 @@
+name: schedule
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Install
+      run: npm i
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v2
+      env:
+        TZ: Asia/Shanghai
+        LANG: zh_CN.UTF-8
+        ACCESS_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        BASE_BRANCH: master
+        BRANCH: gh-pages
+        FOLDER: public
+        BUILD_SCRIPT: npm run build && echo `date +"%m-%d %H:%M:%S"` >> ./public/last-update.txt
