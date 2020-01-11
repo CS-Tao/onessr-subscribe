@@ -21,4 +21,4 @@ jobs:
         BASE_BRANCH: master
         BRANCH: gh-pages
         FOLDER: public
-        BUILD_SCRIPT: npm run build && echo `date +"%m-%d %H:%M:%S"` >> ./public/last-update.txt
+        BUILD_SCRIPT: npm run build && echo `date "+%Y-%m-%d %H:%M:%S"` >> ./public/last-update.txt
