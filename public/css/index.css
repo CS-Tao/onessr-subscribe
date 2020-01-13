@@ -79,7 +79,6 @@ body {
   margin-bottom: 60px;
 }
 .text .address>input {
-  background-color: red;
   width: 500px;
   max-width: 80vw;
   border-top-right-radius: 0;

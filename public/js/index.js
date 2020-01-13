@@ -51,7 +51,7 @@ $("body").click(function(e) {
   $i.css({
     "z-index": 144469,
     "top": y - 20,
-    "left": x,
+    "left": x - 14,
     "position": "absolute",
     "font-weight": "bold",
     "color": "#ffde00"
@@ -60,7 +60,7 @@ $("body").click(function(e) {
   $i.animate({
      "top": y - 180,
      "opacity": 0
-   }, 1500,  function() {
+   }, 2000,  function() {
       $i.remove()
    })
-}
+})
