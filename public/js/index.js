@@ -54,7 +54,7 @@ $("body").click(function(e) {
     "left": x,
     "position": "absolute",
     "font-weight": "bold",
-    "color": "#f00"
+    "color": "#ffde00"
   });
   $("body").append($i);
   $i.animate({
