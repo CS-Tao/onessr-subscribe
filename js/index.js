@@ -21,12 +21,9 @@ function getLastUpdateTime (url, elementId) {
   xhr.send(data);
 }
 
-window.onload = function () {
-  getLastUpdateTime(`/onessr-subscribe/last-update.txt?time=${this.Date.now()}`, 'last-update');
-}
-
 var ipt = document.getElementById('input');
 var title = document.getElementById('title');
+var slt = document.getElementById('select');
 
 ipt.onfocus = function () {
   this.select()
@@ -35,6 +32,14 @@ ipt.onfocus = function () {
 
 ipt.onblur = function () {
   title.classList.remove('title-focus')
+}
+
+slt.onchange = function (e) {
+  ipt.value = e.target.value
+}
+
+window.onload = function () { 
+  getLastUpdateTime(`/onessr-subscribe/last-update.txt?time=${this.Date.now()}`, 'last-update');
 }
 
 var a_idx = 0;
