@@ -23,20 +23,37 @@ function observe (cb) {
   });
 }
 
+function test (cb) {
+  var data = fs.readFileSync('./test.html', {
+    encoding: 'utf-8'
+  })
+  cb(data.toString())
+}
+
+function saveNodes (name, data, reg, fileName) {
+  var ssrNodes = data.match(reg)
+  if (ssrNodes.length) {
+    ssrNodes = ssrNodes.map(node => node.replace(/\s/g, ''))
+    var result = Buffer.from(ssrNodes.join('\n')).toString('base64')
+    var filePath = path.resolve(__dirname, 'public', fileName)
+    fs.writeFile(filePath, result, function (e) {
+      if (e) {
+        throw new Error(e)
+      } else {
+        console.log(`Saved to public/${fileName}.`)
+      }
+    })
+  } else {
+    console.error(`${name} nodes is empty.`)
+    process.exit(1)
+  }
+}
 
 function cb (data) {
-  const front = /data-clipboard-text="/
-  const back = /">点击复制全部ssr节点/
-  var ssrNodes = data.split(front)[1].split(back)[0]
-  var result = Buffer.from(ssrNodes).toString('base64')
-  var filePath = path.resolve(__dirname, 'public', 'onessr-sub.txt')
-  fs.writeFile(filePath, result, function (e) {
-    if (e) {
-      throw new Error(e)
-    } else {
-      console.log('Saved to public/onessr-sub.txt.')
-    }
-  })
+  saveNodes('SS', data, /ss:\/\/[\s\S]*?(?=\">)/g, 'oness-sub.txt')
+  saveNodes('SSR', data, /ssr:\/\/[\s\S]*?(?=\">)/g, 'onessr-sub.txt')
+  saveNodes('V2ray', data, /vmess:\/\/[\s\S]*?(?=\">)/g, 'onev2ray-sub.txt')
 }
 
 observe(cb)
+// test(cb)
