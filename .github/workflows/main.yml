@@ -11,6 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Install and Build
+      env:
+        TZ: Asia/Shanghai
       run: |
         npm i
         npm run build
