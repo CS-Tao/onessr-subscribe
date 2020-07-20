@@ -55,5 +55,10 @@ function cb (data) {
   saveNodes('V2ray', data, /vmess:\/\/[\s\S]*?(?=\">)/g, 'onev2ray-sub.txt')
 }
 
-observe(cb)
+try {
+  observe(cb)
+} catch (e) {
+  console.error(e.message)
+}
+
 // test(cb)
