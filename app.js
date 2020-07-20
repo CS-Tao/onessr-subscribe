@@ -18,8 +18,11 @@ function observe (cb) {
   });
 
   req.end(function (res) {
-    if (res.error) throw new Error(res.error);
-    cb(res.body);
+    if (res.error) {
+      console.error(res.error);
+    } else {
+      cb(res.body);
+    }
   });
 }
 
