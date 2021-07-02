@@ -35,7 +35,7 @@ function test (cb) {
 
 function saveNodes (name, data, reg, fileName) {
   var ssrNodes = data.match(reg)
-  if (ssrNodes.length) {
+  if (ssrNodes && ssrNodes.length) {
     ssrNodes = ssrNodes.map(node => node.replace(/\s/g, ''))
     var result = Buffer.from(ssrNodes.join('\n')).toString('base64')
     var filePath = path.resolve(__dirname, 'public', fileName)
